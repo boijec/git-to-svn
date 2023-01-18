@@ -10,7 +10,7 @@ This script is an attempt at easing / alleviating some headaches while traveling
 ### Prerequisites
 * Run under a Linux environment
 * Install command-line tools for git (at least v2.25.1) and subversion (at least v1.13.0)
-* Install "git-svn bridge" git-svn (at least v2.25.1, it most likely not installed with the git cli)
+* Install "git-svn bridge" git-svn (at least v2.25.1, it's most likely not installed with the git cli)
 
 ### Run
 This script has six profiles, `verify`, `export_authors`, `migrate`, `convert`, `sync` and `clean`.
