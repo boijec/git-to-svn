@@ -1,6 +1,6 @@
 # SVN to GIT Migration Script
 ## Background
-[Atlassian's Git-SVN migration guide](https://www.atlassian.com/git/tutorials/migrating-overview) is a very good guide
+[Atlassian's SVN-to-GIT migration guide](https://www.atlassian.com/git/tutorials/migrating-overview) is a very good guide
 on how to migrate your SVN repository to Git. However, it's not been kept up to date and there are (in some cases)
 some very serious issues with it.
 
