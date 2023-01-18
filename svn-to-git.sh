@@ -36,7 +36,7 @@ checkSoftwareVersions()
     exit 1;
   fi
   CHECK_OS=$(uname -a | grep -i 'linux' | wc -l)
-  if [[ "$CHECK_OS" -lt "1" ]]; then\
+  if [[ "$CHECK_OS" -lt "1" ]]; then
     log "Could not determine Linux OS through uname, quitting, immediately.."
     exit 1;
   else
