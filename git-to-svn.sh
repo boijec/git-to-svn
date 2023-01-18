@@ -37,7 +37,7 @@ checkSoftwareVersions()
   fi
   CHECK_OS=$(uname -a | grep -i 'linux' | wc -l)
   if [[ "$CHECK_OS" -lt "1" ]]; then\
-    log "Could not determine Linux OS through uname, quitting, immediatley.."
+    log "Could not determine Linux OS through uname, quitting, immediately.."
     exit 1;
   else
     log "uname check, passed.."
@@ -206,7 +206,7 @@ case "$1" in
   ;;
   clean)
     checkDesiredFolder $2
-    printf "This will remove all local branches and tags, this action is non-reversable, continue Yes(Y), No(n): "
+    printf "This will remove all local branches and tags, this action is non-reversible, continue Yes(Y), No(n): "
     read CONFIRMATION_OF_DELETION
     if [[ "$CONFIRMATION_OF_DELETION" != "Y" ]]; then
       log "Clean was not performed"
