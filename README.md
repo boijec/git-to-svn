@@ -16,11 +16,11 @@ This script is an attempt at easing / alleviating some headaches while traveling
 This script has six profiles, `verify`, `export_authors`, `migrate`, `convert`, `sync` and `clean`.
 Each profile has its own purpose and should be run independently.
 ```shell
-./git-to-svn.sh [verify|export_authors|migrate|convert|sync|clean] 
+./svn-to-git.sh [verify|export_authors|migrate|convert|sync|clean] 
 ```
 Print usage by running:
 ```shell
-./git-to-svn.sh --help
+./svn-to-git.sh --help
 ```
 ### Known Issues
 
