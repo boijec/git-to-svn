@@ -1,0 +1,21 @@
+=========================SVN-to-GIT MIGRATION SCRIPT=========================
+Author: Carl Boije, 2023
+Before using, consider running the 'verify' profile to verify that everything is installed correctly
+The 'convert', 'sync' and 'migrate' profiles all have input arguments, absolute paths are recommended, but relative works too.
+Recommended workflow:
+'verify' that all tools are installed
+'export_authors' from SVN to a file that can be referenced later when migrating repositories
+'migrate' the remote SVN repo to a local git repo
+'convert' the SVN branches and tags into local git branches and tags
+'sync' changes made from SVN to your local GIT repo
+(optional) 'clean' your local git repo, this removes all local git branches and tags with one simple command
+
+\t./{SCRIPTNAME} verify
+\t./{SCRIPTNAME} export_authors [SVN_ROOT_PATH]
+\t./{SCRIPTNAME} migrate [DESIRED_LOCATION] [SVN_REPO_URL]
+\t./{SCRIPTNAME} convert [PATH_TO_LOCAL_GIT_REPOSITORY_ROOT]
+\t./{SCRIPTNAME} sync [PATH_TO_LOCAL_GIT_REPOSITORY_ROOT]
+\t./{SCRIPTNAME} clean [PATH_TO_LOCAL_GIT_REPOSITORY_ROOT]
+
+** RUNTIME ASSUMES THAT YOU'RE RUNNING UNDER A WSL 2.0 INSTANCE, OR A UNIX BASED TERMINAL **
+** RUNTIME ALSO ASSUMES THAT YOU HAVE A DEFAULT SVN USER CACHED THROUGH GIT SVN AND HAVE ACCEPTED THE SERVER CERT (if the migrate profile doesn't work, you can copy the steps from the script and do it manually) **
