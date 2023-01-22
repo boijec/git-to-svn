@@ -1,4 +1,4 @@
-# Path: src\main\modules\profile-implementations.sh
+#-- Path: src\main\modules\profile-implementations.sh
 function runConvert() {
   for branch in $(git branch -r | grep "origin/" | grep -v 'tags/' | sed 's/ origin\///'); do
     log "" pi-conv-git-b "Converting SVN branch: ${branch} to git branch"

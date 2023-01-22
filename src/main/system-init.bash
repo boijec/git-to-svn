@@ -1,7 +1,7 @@
-# Path: src\main\svn-to-git.bash
+#-- Path: src\main\svn-to-git.bash
 if [[ ! -d "${SVN_TO_GIT_DIR}" ]]; then
-  log ERROR system-init-cdc "Could not find temp folder in /tmp" ; exit 1
+  log ERROR system-init-cdc "Could not find main directory in /tmp.. quitting.." ; exit 1
 fi
-# Referring to the credential module to handle the load and keeping of credentials
+#-- svn-credential-manager.sh
 checkIfExistsOrPropmtAndGracefullyExit
 loadCredentials

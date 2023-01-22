@@ -1,20 +1,20 @@
-# Path: src\main\main.bash
+#-- Path: src\main\main.bash
+#-- Loop through all the arguments and check if option '--svn-url' is present
+parseOptions "${@}"
 case "$1" in
   verify)
     checkSoftwareVersions
     exit 0;
   ;;
   convert)
-    checkIfDesiredFolderExists "${2}"
-    checkIfDesiredFolderIsRepo "${2}"
+    checkIfDesiredFolderExistsAndIsRepo "${2}"
     cd "${2}" || (log ERROR main-convert "Unexpected error" ; exit 1)
     runConvert
     cd "${ORIGIN_DIR}" || (log ERROR main-convert "Unexpected error" ; exit 1)
     exit 0;
   ;;
   sync)
-    checkIfDesiredFolderExists "${2}"
-    checkIfDesiredFolderIsRepo "${2}"
+    checkIfDesiredFolderExistsAndIsRepo "${2}"
     checkForCredentials
     cd "${2}" || (log ERROR main-sync "Unexpected error" ; exit 1)
     runSync
@@ -22,8 +22,7 @@ case "$1" in
     exit 0;
   ;;
   clean)
-    checkIfDesiredFolderExists "${2}"
-    checkIfDesiredFolderIsRepo "${2}"
+    checkIfDesiredFolderExistsAndIsRepo "${2}"
     printf "This will remove all local branches and tags, this action is non-reversible, continue Yes(Y), No(n): "
     read -r CONFIRMATION_OF_DELETION
     if [[ "${CONFIRMATION_OF_DELETION}" != "Y" ]]; then
@@ -43,13 +42,17 @@ case "$1" in
     cd "${ORIGIN_DIR}" || (log ERROR main-migrate "Unexpected error" ; exit 1)
     exit 0;
   ;;
-  export_authors)
+  export-authors)
     checkForCredentials
     runAuthorsExport "${2}"
     ls -la "${3}"
     exit 0;
   ;;
-  --help)
+#-- create-incantation)
+#--    checkForCredentials
+#--    exit 0;
+#--  ;;
+  help)
     printUsage
     exit 0;
   ;;

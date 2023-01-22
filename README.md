@@ -4,29 +4,25 @@
 on how to migrate your SVN repository to Git. However, it's not been kept up to date and there are (in some cases)
 some very serious issues with it.
 
-This script is an attempt at easing / alleviating some headaches while traveling down the road, less traveled.
+This is an attempt at easing / alleviating some headaches while traveling down the road, less traveled.
 
 ## Usage
 ### Prerequisites
-* Run under a Linux environment
+* Run under a Linux environment (both the program and the installer will hard quit, if run under anything else)
 * Install command-line tools for git (at least v2.25.1) and subversion (at least v1.13.0)
 * Install "git-svn bridge" git-svn (at least v2.25.1, it's most likely not installed with the git cli)
+* Install cli tools for development
+  * On Debian/Ubuntu: `sudo apt install -y make gcc shc`
 
 ### Installation
-The Makefile builds an installer that you can run to install the script as a command-line tool as well
-as making sure that the `/tmp` folder for the script is created.
+Package the binary and install script by running `make` in the root directory of the project, then running `./target/install.sh`.
 
 ### Run
-On your first run, you'll be asked to enter SVN login credentials. These will be stored in a file in the `/tmp` directory.<br>
+On your first run, you'll be asked to enter SVN login credentials. These will be stored in a file in the `/opt` directory.<br>
 On each run, this file will be read and the credentials will be used to authenticate with the SVN server.<br>
-The script has six profiles, `verify`, `export_authors`, `migrate`, `convert`, `sync` and `clean`.
-Each profile has its own purpose and should be run independently.
-```shell
-./svn-to-git.sh [verify|export_authors|migrate|convert|sync|clean] 
-```
 Print usage by running:
 ```shell
-./svn-to-git.sh --help
+svn-to-git help
 ```
 ### Known Issues
 
